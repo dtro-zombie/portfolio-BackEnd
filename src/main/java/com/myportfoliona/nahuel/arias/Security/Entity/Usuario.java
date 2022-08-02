@@ -21,19 +21,30 @@ public class Usuario {
     private int id;
     @NotNull
     private String nombre;
-
-   
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
     @NotNull
-    @Column(unique=true)
+    @Column(unique = true)
     private String nombreUsuario;
+    @NotNull
+    private String email;
+    @NotNull
+    private String password;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name ="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    private Set<Rol> roles = new HashSet<>();
+
+    //Constructores
+
+    public Usuario() {
+    }
+
+    public Usuario(String nombre, String nombreUsuario, String email, String password) {
+        this.nombre = nombre;
+        this.nombreUsuario = nombreUsuario;
+        this.email = email;
+        this.password = password;
+    }
+
+    //Getter Y Setter
 
     public int getId() {
         return id;
@@ -41,6 +52,14 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getNombreUsuario() {
@@ -75,29 +94,4 @@ public class Usuario {
         this.roles = roles;
     }
 
-    public Usuario(String nombre, String nombreUsuario, String email, String password) {
-        this.nombre = nombre;
-        this.nombreUsuario = nombreUsuario;
-        this.email = email;
-        this.password = password;
-    }
-
- 
-
-   
-
-    public Usuario() {
-    }
-    @NotNull
-     @Column(unique=true)
-    private String email;
-     @NotNull
-     private String password;
-     //relacionando tablas
-     @ManyToMany(fetch = FetchType.EAGER)
-     @JoinTable(name="usuario_rol", 
-             joinColumns=@JoinColumn(name="usuario_id"),
-             inverseJoinColumns=@JoinColumn(name="rol_id"))
-     private Set<Rol> roles= new HashSet<>();
-     
 }

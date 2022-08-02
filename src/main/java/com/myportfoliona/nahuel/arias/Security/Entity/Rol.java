@@ -18,19 +18,21 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Rol {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
     @NotNull
     @Enumerated(EnumType.STRING)
-    private RolNombre rolNOmbre;
+    private RolNombre rolNombre;
 
+    //Constructor
     public Rol() {
     }
 
-    public Rol(RolNombre rolNOmbre) {
-        this.rolNOmbre = rolNOmbre;
+    public Rol(RolNombre rolNombre) {
+        this.rolNombre = rolNombre;
     }
+
+    //Getter y Setter
 
     public int getId() {
         return id;
@@ -40,13 +42,13 @@ public class Rol {
         this.id = id;
     }
 
-    public RolNombre getRolNOmbre() {
-        return rolNOmbre;
+    public RolNombre getRolNombre() {
+        return rolNombre;
     }
 
-    public void setRolNOmbre(RolNombre rolNOmbre) {
-        this.rolNOmbre = rolNOmbre;
+    public void setRolNombre(RolNombre rolNombre) {
+        this.rolNombre = rolNombre;
     }
-    
-    
+
+
 }
