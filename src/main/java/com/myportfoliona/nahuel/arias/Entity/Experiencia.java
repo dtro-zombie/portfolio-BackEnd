@@ -16,19 +16,31 @@ public class Experiencia {
     private int id;
     private String nombreE;
     private String descripcionE;
+    private String pathimg;
+    private String urlimg;
+    
     
    //constructores
 
     public Experiencia() {
     }
 
-    public Experiencia(String nombreE, String descripcionE) {
+    public Experiencia(String nombreE, String descripcionE,String urlimg,String pathimg) {
         this.id = id;
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
+        this.urlimg= urlimg;
+        this.pathimg=pathimg;
     }
     
+    public String getPathimg() {
+        return pathimg;
+    }
+
     //getters and setters
+    public void setPathimg(String pathimg) {
+        this.pathimg = pathimg;
+    }
 
     public int getId() {
         return id;
@@ -53,6 +65,15 @@ public class Experiencia {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
+
+    public String getUrlimg() {
+        return urlimg;
+    }
+
+    public void setUrlimg(String urlimg) {
+        this.urlimg = urlimg;
+    }
+    
     
     
 }
