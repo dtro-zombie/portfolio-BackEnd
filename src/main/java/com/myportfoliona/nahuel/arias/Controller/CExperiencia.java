@@ -83,6 +83,7 @@ public class CExperiencia {
         experiencia.setNombreE(dtoexp.getNombreE());
         experiencia.setDescripcionE(dtoexp.getDescripcionE());
         experiencia.setUrlimg(dtoexp.getUrlimg());
+        experiencia.setPathimg(dtoexp.getPathimg());
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK );
     

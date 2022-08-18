@@ -1,43 +1,35 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.myportfoliona.nahuel.arias.Dto;
 
-package com.myportfoliona.nahuel.arias.Entity;
+import javax.validation.constraints.NotBlank;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
- @Entity
-public class Educacion {
- 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+/**
+ *
+ * @author arias
+ */
+public class dtoEducacion {
+    
+     @NotBlank
     private String nombreEdu;
+    @NotBlank
     private String descripcionEdu;
+    
     private String pathimgEdu;
     private String urlimgEdu;
     private String periodo;
 
-    public Educacion() {
+    public dtoEducacion() {
     }
 
-    public Educacion(String nombreEdu, String descripcionEdu, String pathimgEdu, String urlimgEdu, String periodo) {
+    public dtoEducacion(String nombreEdu, String descripcionEdu, String pathimgEdu, String urlimgEdu, String periodo) {
         this.nombreEdu = nombreEdu;
         this.descripcionEdu = descripcionEdu;
         this.pathimgEdu = pathimgEdu;
         this.urlimgEdu = urlimgEdu;
         this.periodo = periodo;
-    }
-
-  
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombreEdu() {
@@ -79,5 +71,7 @@ public class Educacion {
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
+
+    
     
 }

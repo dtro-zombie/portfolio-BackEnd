@@ -26,7 +26,7 @@ public class Experiencia {
     }
 
     public Experiencia(String nombreE, String descripcionE,String urlimg,String pathimg) {
-        this.id = id;
+        
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.urlimg= urlimg;
