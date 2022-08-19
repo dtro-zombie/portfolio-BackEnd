@@ -82,8 +82,8 @@ public class CHard {
         Hard hard= sHard.getOne(id).get();
         hard.setNombreHard(dtohard.getNombreHard());
         hard.setPorcentaje(dtohard.getPorcentaje());
-        hard.setUrlimgEdu(dtohard.getUrlimgHard());
-        hard.setPathimgEdu(dtohard.getPathimgHard());
+        hard.setUrlimgHard(dtohard.getUrlimgHard());
+        hard.setPathimgHard(dtohard.getPathimgHard());
         sHard.save(hard);
         return new ResponseEntity(new Mensaje("HARD & SOFT SKILLS actualizada"), HttpStatus.OK );
     

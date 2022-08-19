@@ -23,8 +23,8 @@ public class Hard {
     public Hard(String nombreHard, int porcentaje, String pathimgHard, String urlimgHard) {
         this.nombreHard = nombreHard;
         this.porcentaje = porcentaje;
-        this.pathimgHard = pathimgHard;
-        this.urlimgHard = urlimgHard;
+            this.pathimgHard = pathimgHard;
+            this.urlimgHard = urlimgHard;
     }
 
     public int getId() {
@@ -51,21 +51,23 @@ public class Hard {
         this.porcentaje = porcentaje;
     }
 
-    public String getPathimgEdu() {
+    public String getPathimgHard() {
         return pathimgHard;
     }
 
-    public void setPathimgEdu(String pathimgEdu) {
-        this.pathimgHard = pathimgEdu;
+    public void setPathimgHard(String pathimgHard) {
+        this.pathimgHard = pathimgHard;
     }
 
-    public String getUrlimgEdu() {
+    public String getUrlimgHard() {
         return urlimgHard;
     }
 
-    public void setUrlimgEdu(String urlimgEdu) {
-        this.urlimgHard= urlimgEdu;
+    public void setUrlimgHard(String urlimgHard) {
+        this.urlimgHard = urlimgHard;
     }
+
+   
     
     
     
