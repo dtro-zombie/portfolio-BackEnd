@@ -1,68 +1,43 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.myportfoliona.nahuel.arias.Dto;
 
-package com.myportfoliona.nahuel.arias.Entity;
-
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import javax.validation.constraints.NotBlank;
 
 /**
  *
  * @author arias
  */
+public class dtoPersona {
 
-@Entity
-public class Persona {
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
-    private int id;
-    
+    @NotBlank
 
-    @NotNull
-    @Size(min=1,max=50,message="longitud no valida")
     private String nombre;
-    
-     @NotNull
-    @Size(min=1,max=50,message="longitud no valida")    
+
+    @NotBlank
+
     private String apellido;
-      
-    
+
     private String img;
-    
+
     private String path;
-    
+
     private String Sobremi;
-    
+
     private String titulo;
 
-    public Persona() {
+    public dtoPersona() {
     }
 
-    public Persona(String nombre, String apellido, String img, String path, String Sobremi, String titulo) {
+    public dtoPersona(String nombre, String apellido, String img, String path, String Sobremi, String titulo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.img = img;
         this.path = path;
         this.Sobremi = Sobremi;
         this.titulo = titulo;
-    }
-
-    
-    
-    
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -112,8 +87,5 @@ public class Persona {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-
-  
-    
     
 }
