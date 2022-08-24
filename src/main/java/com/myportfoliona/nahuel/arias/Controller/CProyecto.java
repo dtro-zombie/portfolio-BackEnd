@@ -25,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
+
 /**
  *
  * @author arias
@@ -36,10 +39,11 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins="http://localhost:4200")
 public class CProyecto {
     
-     @Autowired
-    SProyecto sProyecto; 
+   @Autowired
+    SProyecto sProyecto;
      
-     @GetMapping("/lista")
+
+	 @GetMapping("/lista")
     public ResponseEntity<List<Proyecto>> list()
     {
         List<Proyecto> list=sProyecto.list();
@@ -63,7 +67,7 @@ public class CProyecto {
         if(sProyecto.existsByNombrePro(dtoproyecto.getNombrePro()))
                return new ResponseEntity(new Mensaje("Esa HARD & SOFT SKILLS existe"),HttpStatus.BAD_REQUEST);
                
-        Proyecto proyecto= new Proyecto(dtoproyecto.getNombrePro(),dtoproyecto.getDescripcioPro(),dtoproyecto.getFecha(),dtoproyecto.getLink());
+        Proyecto proyecto= new Proyecto(dtoproyecto.getNombrePro(),dtoproyecto.getDescripcioPro() ,dtoproyecto.getFecha(),dtoproyecto.getLink());
         
         sProyecto.save(proyecto);
         
@@ -77,7 +81,7 @@ public class CProyecto {
     if(!sProyecto.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
     
-    if(sProyecto.existsByNombrePro(dtoproyecto.getNombrePro()) && sProyecto.getByProyecto(dtoproyecto.getNombrePro()).get().getId()!= id)
+    if(sProyecto.existsByNombrePro(dtoproyecto.getNombrePro()) && sProyecto.getByNombrePro(dtoproyecto.getNombrePro()).get().getIdProyecto()!= id)
         
         return new ResponseEntity(new Mensaje("Esa HARD & SOFT SKILLS ya existe"),HttpStatus.BAD_REQUEST);
         
@@ -104,8 +108,6 @@ public class CProyecto {
         
         return new ResponseEntity(new Mensaje("HARD & SOFT SKILLS eliminada"),HttpStatus.OK);
         
-    }
-     
-     
+    }     
      
 }

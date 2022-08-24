@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 public interface RHard extends JpaRepository<Hard,Integer>{
 
-    public Optional<Hard> findByNombreHard(String nombreHard);
+    public Optional<Hard> findByNombreHard(String nombreProyecto);
     public boolean existsByNombreHard(String nombreHard);
   
 }

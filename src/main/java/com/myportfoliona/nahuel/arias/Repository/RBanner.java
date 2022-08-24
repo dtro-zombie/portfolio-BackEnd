@@ -4,20 +4,17 @@
  */
 package com.myportfoliona.nahuel.arias.Repository;
 
-import com.myportfoliona.nahuel.arias.Entity.Hard;
-import com.myportfoliona.nahuel.arias.Entity.Proyecto;
+import com.myportfoliona.nahuel.arias.Entity.Banner;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author arias
  */
-  @Repository
-public interface RProyecto extends JpaRepository<Proyecto,Integer>{
+public interface RBanner extends JpaRepository<Banner,Integer>{
 
-   public Optional<Proyecto> findByNombrePro(String nombrePro);
-    public boolean existsByNombrePro(String nombrePro);
+    public Optional<Banner> findBylinkBa(String linkBa);
+    public boolean existsBylinkBa(String linkBa);
     
 }

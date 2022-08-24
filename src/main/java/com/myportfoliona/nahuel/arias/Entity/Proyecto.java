@@ -4,25 +4,39 @@
  */
 package com.myportfoliona.nahuel.arias.Entity;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author arias
  */
  @Entity
+ @Table(name = "proyectos")
 public class Proyecto {
-      @Id
+    @Id
+    @Column(name="id_proyecto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int idProyecto;
+    @Column(name="nombre")
     private String nombrePro;
+    @Column(name="descripcion")
     private String descripcioPro;
+    @Column(name="fecha")
     private String Fecha;
+    @Column(name="link")
     private String link;
-
+   
+    
     public Proyecto() {
     }
 
@@ -33,12 +47,12 @@ public class Proyecto {
         this.link = link;
     }
 
-    public int getId() {
-        return id;
+    public int getIdProyecto() {
+        return idProyecto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdProyecto(int idProyecto) {
+        this.idProyecto = idProyecto;
     }
 
     public String getNombrePro() {
@@ -72,10 +86,5 @@ public class Proyecto {
     public void setLink(String link) {
         this.link = link;
     }
-   
     
-    
-    
-    
-    
-}
+ }

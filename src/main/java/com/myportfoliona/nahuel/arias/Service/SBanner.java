@@ -4,9 +4,9 @@
  */
 package com.myportfoliona.nahuel.arias.Service;
 
+import com.myportfoliona.nahuel.arias.Entity.Banner;
 import com.myportfoliona.nahuel.arias.Entity.Hard;
-import com.myportfoliona.nahuel.arias.Entity.Proyecto;
-import com.myportfoliona.nahuel.arias.Repository.RProyecto;
+import com.myportfoliona.nahuel.arias.Repository.RBanner;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -19,45 +19,45 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Transactional
-public class SProyecto {
+public class SBanner {
+     @Autowired
+    RBanner rBanner;
     
-      @Autowired
-    RProyecto rProyecto;
     
-    public List<Proyecto> list(){
+    public List<Banner> list(){
         
-        return rProyecto.findAll();
+        return rBanner.findAll();
     }
     
-     public Optional<Proyecto> getOne(int id)
+    public Optional<Banner> getOne(int id)
     {
-        return rProyecto.findById(id);
+        return rBanner.findById(id);
     }
     
-    public Optional<Proyecto> getByNombrePro(String nombreProyecto)
+    public Optional<Banner> getBylinkBa(String banner)
     {
-        return rProyecto.findByNombrePro(nombreProyecto);
+        return rBanner.findBylinkBa(banner);
         
     } 
     
-    public void save (Proyecto proyecto)
+    public void save (Banner banner)
     {
-        rProyecto.save(proyecto);
+        rBanner.save(banner);
     }
     
     public void delete(int id)
     
     {
-        rProyecto.deleteById(id);
+        rBanner.deleteById(id);
     }
     
     public boolean existsById(int id){
-        return rProyecto.existsById(id);
+        return rBanner.existsById(id);
         
     }
-    public boolean existsByNombrePro(String nombrePro)
+    public boolean existsBylinkBa(String linkBa)
     {
-        return rProyecto.existsByNombrePro(nombrePro);
+        return rBanner.existsBylinkBa(linkBa);
         
     }
 

@@ -29,12 +29,15 @@ public class Persona {
     private String nombre;
     
      @NotNull
-    @Size(min=1,max=50,message="longitud no valida")
+    @Size(min=1,max=50,message="longitud no valida")    
     private String apellido;
       
-    @Size(min=1,max=50,message="longitud no valida")
+  
     private String img;
     
+    private String path;
+    
+    private String Sobremi;
     
     
 }
