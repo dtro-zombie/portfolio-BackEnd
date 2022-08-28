@@ -4,16 +4,11 @@
  */
 package com.myportfoliona.nahuel.arias.Entity;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,7 +21,7 @@ public class Proyecto {
     @Id
     @Column(name="id_proyecto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idProyecto;
+    private int id;
     @Column(name="nombre")
     private String nombrePro;
     @Column(name="descripcion")
@@ -35,24 +30,46 @@ public class Proyecto {
     private String Fecha;
     @Column(name="link")
     private String link;
+    @Column(name="path")
+    private String path;
+    @Column(name="urlpro")
+    private String urlpro;
    
     
     public Proyecto() {
     }
 
-    public Proyecto(String nombrePro, String descripcioPro, String Fecha, String link) {
+    public Proyecto(String nombrePro, String descripcioPro, String Fecha, String link,String path,String urlpro) {
         this.nombrePro = nombrePro;
         this.descripcioPro = descripcioPro;
         this.Fecha = Fecha;
         this.link = link;
+        this.path = path;
+         this.urlpro = urlpro;
     }
 
-    public int getIdProyecto() {
-        return idProyecto;
+    public String getUrlpro() {
+        return urlpro;
     }
 
-    public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto;
+    public void setUrlpro(String urlpro) {
+        this.urlpro = urlpro;
+    }
+    
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombrePro() {

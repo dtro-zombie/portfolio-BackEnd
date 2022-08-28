@@ -18,6 +18,7 @@ public class Experiencia {
     private String descripcionE;
     private String pathimg;
     private String urlimg;
+    private String periodoE;
     
     
    //constructores
@@ -25,13 +26,25 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String nombreE, String descripcionE,String urlimg,String pathimg) {
+    public Experiencia(String nombreE, String descripcionE,String urlimg,String pathimg,String periodoE) {
         
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.urlimg= urlimg;
         this.pathimg=pathimg;
+        this.periodoE=periodoE;
     }
+
+    public String getPeriodoE() {
+        return periodoE;
+    }
+
+    public void setPeriodoE(String periodoE) {
+        this.periodoE = periodoE;
+    }
+    
+    
+    
     
     public String getPathimg() {
         return pathimg;

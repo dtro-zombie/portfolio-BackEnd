@@ -4,7 +4,6 @@
  */
 package com.myportfoliona.nahuel.arias.Controller;
 
-import com.myportfoliona.nahuel.arias.Dto.dtoHard;
 import com.myportfoliona.nahuel.arias.Dto.dtoProyecto;
 import com.myportfoliona.nahuel.arias.Entity.Hard;
 import com.myportfoliona.nahuel.arias.Entity.Proyecto;
@@ -15,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,7 +57,7 @@ public class CProyecto {
         Proyecto proyecto = sProyecto.getOne(id).get();
         return new ResponseEntity(proyecto, HttpStatus.OK);
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoProyecto dtoproyecto)
     {
@@ -67,21 +67,21 @@ public class CProyecto {
         if(sProyecto.existsByNombrePro(dtoproyecto.getNombrePro()))
                return new ResponseEntity(new Mensaje("Esa HARD & SOFT SKILLS existe"),HttpStatus.BAD_REQUEST);
                
-        Proyecto proyecto= new Proyecto(dtoproyecto.getNombrePro(),dtoproyecto.getDescripcioPro() ,dtoproyecto.getFecha(),dtoproyecto.getLink());
+        Proyecto proyecto= new Proyecto(dtoproyecto.getNombrePro(),dtoproyecto.getDescripcioPro() ,dtoproyecto.getFecha(),dtoproyecto.getLink(),dtoproyecto.getPath(),dtoproyecto.getUrlpro());
         
         sProyecto.save(proyecto);
         
         return new ResponseEntity(new Mensaje("HARD & SOFT SKILLS agregada"),HttpStatus.OK);
     
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
   @PutMapping("/update/{id}")  
   public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoProyecto dtoproyecto)
   {
     if(!sProyecto.existsById(id))
             return new ResponseEntity(new Mensaje("El ID no existe"),HttpStatus.BAD_REQUEST);
     
-    if(sProyecto.existsByNombrePro(dtoproyecto.getNombrePro()) && sProyecto.getByNombrePro(dtoproyecto.getNombrePro()).get().getIdProyecto()!= id)
+    if(sProyecto.existsByNombrePro(dtoproyecto.getNombrePro()) && sProyecto.getByNombrePro(dtoproyecto.getNombrePro()).get().getId()!= id)
         
         return new ResponseEntity(new Mensaje("Esa HARD & SOFT SKILLS ya existe"),HttpStatus.BAD_REQUEST);
         
@@ -93,12 +93,15 @@ public class CProyecto {
         proyecto.setDescripcioPro(dtoproyecto.getDescripcioPro());
         proyecto.setFecha(dtoproyecto.getFecha());
         proyecto.setLink(dtoproyecto.getLink());
+        proyecto.setPath(dtoproyecto.getPath());
+        proyecto.setUrlpro(dtoproyecto.getUrlpro());
         sProyecto.save(proyecto);
         return new ResponseEntity(new Mensaje("HARD & SOFT SKILLS actualizada"), HttpStatus.OK );
     
             
             
             }         
+  @PreAuthorize("hasRole('ADMIN')")
   @DeleteMapping("/delete/{id}") 
     public ResponseEntity<?> delete(@PathVariable("id") int id)
     {
@@ -106,7 +109,7 @@ public class CProyecto {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
        sProyecto.delete(id);
         
-        return new ResponseEntity(new Mensaje("HARD & SOFT SKILLS eliminada"),HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("proyecto eliminada"),HttpStatus.OK);
         
     }     
      

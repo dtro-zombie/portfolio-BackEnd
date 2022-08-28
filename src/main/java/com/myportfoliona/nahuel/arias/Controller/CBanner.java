@@ -5,9 +5,7 @@
 package com.myportfoliona.nahuel.arias.Controller;
 
 import com.myportfoliona.nahuel.arias.Dto.dtoBanner;
-import com.myportfoliona.nahuel.arias.Dto.dtoEducacion;
 import com.myportfoliona.nahuel.arias.Entity.Banner;
-import com.myportfoliona.nahuel.arias.Entity.Educacion;
 import com.myportfoliona.nahuel.arias.Security.Controller.Mensaje;
 import com.myportfoliona.nahuel.arias.Service.SBanner;
 import java.util.List;
@@ -15,6 +13,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,6 +51,7 @@ public class CBanner {
         Banner banner = sBanner.getOne(id).get();
         return new ResponseEntity(banner, HttpStatus.OK);
     }
+    @PreAuthorize("hasRole('ADMIN')")
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoBanner dtobanner)
@@ -69,7 +69,7 @@ public class CBanner {
         return new ResponseEntity(new Mensaje("educacion agregada"),HttpStatus.OK);
     
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
   @PutMapping("/update/{id}")  
   public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoBanner dtobanner)
   {
@@ -92,6 +92,7 @@ public class CBanner {
             
             
             }         
+  @PreAuthorize("hasRole('ADMIN')")
   @DeleteMapping("/delete/{id}") 
     public ResponseEntity<?> delete(@PathVariable("id") int id)
     {

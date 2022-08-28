@@ -12,16 +12,27 @@ public class dtoExperiencia {
     
     private String pathimg;
     private String urlimg;
+    private String periodoE;
 
     public dtoExperiencia() {
     }
 
-    public dtoExperiencia(String nombreE, String descripcionE, String urlimg) {
+    public dtoExperiencia(String nombreE, String descripcionE, String urlimg, String periodoE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
         this.urlimg= urlimg;
+        this.periodoE=periodoE;
     }
 
+    public String getPeriodoE() {
+        return periodoE;
+    }
+
+    public void setPeriodoE(String periodoE) {
+        this.periodoE = periodoE;
+    }
+    
+    
     public String getNombreE() {
         return nombreE;
     }

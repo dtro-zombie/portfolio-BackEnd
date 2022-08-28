@@ -18,17 +18,43 @@ public class dtoProyecto {
     private String descripcioPro;
     private String Fecha;
     private String link;
+    private String path;
+    private String urlpro;
+     
 
     public dtoProyecto() {
     }
 
-    public dtoProyecto(String nombrePro, String descripcioPro, String Fecha, String link) {
+    public dtoProyecto(String nombrePro, String descripcioPro, String Fecha, String link,String path,String urlpro) {
         this.nombrePro = nombrePro;
         this.descripcioPro = descripcioPro;
         this.Fecha = Fecha;
         this.link = link;
+        this.path = path;
+        this.urlpro = urlpro;
     }
 
+    public String getUrlpro() {
+        return urlpro;
+    }
+
+    public void setUrlpro(String urlpro) {
+        this.urlpro = urlpro;
+    }
+
+    
+    
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    
+    
+    
     public String getNombrePro() {
         return nombrePro;
     }
