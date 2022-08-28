@@ -7,14 +7,14 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.myportfoliona.nahuel.arias.Security.Repository.IRolRepository;
+import com.myportfoliona.nahuel.arias.Security.Repository.iRolRepository;
 
 
 @Service
 @Transactional
 public class RolService {
     @Autowired
-    IRolRepository irolRepository;
+    iRolRepository irolRepository;
 
     public Optional<Rol> getByRolNombre(RolNombre rolNombre){
         return irolRepository.findByRolNombre(rolNombre);

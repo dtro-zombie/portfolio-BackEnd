@@ -6,13 +6,13 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.myportfoliona.nahuel.arias.Security.Repository.IUsuarioRepository;
+import com.myportfoliona.nahuel.arias.Security.Repository.iUsuarioRepository;
 
 @Service
 @Transactional
 public class UsuarioService {
     @Autowired
-    IUsuarioRepository iusuarioRepository;
+    iUsuarioRepository iusuarioRepository;
 
     public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
         return iusuarioRepository.findByNombreUsuario(nombreUsuario);
