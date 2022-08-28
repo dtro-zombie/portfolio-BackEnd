@@ -2,17 +2,17 @@
 package com.myportfoliona.nahuel.arias.Security.Service;
 
 import com.myportfoliona.nahuel.arias.Security.Entity.Usuario;
-import com.myportfoliona.nahuel.arias.Security.Repository.iUsuarioRepository;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.myportfoliona.nahuel.arias.Security.Repository.IUsuarioRepository;
 
 @Service
 @Transactional
 public class UsuarioService {
     @Autowired
-    iUsuarioRepository iusuarioRepository;
+    IUsuarioRepository iusuarioRepository;
 
     public Optional<Usuario> getByNombreUsuario(String nombreUsuario){
         return iusuarioRepository.findByNombreUsuario(nombreUsuario);
